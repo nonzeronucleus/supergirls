@@ -2,14 +2,24 @@ import React from 'react'
 import styled from 'styled-components';
 import _ from 'lodash';
 import DateBlock from './DateBlock';
+import { Link } from 'gatsby'
+
 
 const EventList = styled.ul`
-  li {
-    border-bottom-width: 1px;
+
+color:red;
+ a: link {
+   text-decoration: none;
+   color:#283018;
+ }
+ a > li {
+  color:#283018;
+
+  border-bottom-width: 1px;
     border-bottom-style: solid;
     padding-bottom:20px;
     border-bottom-color: lightgray;
-  }
+}
 
 `;
 
@@ -52,19 +62,21 @@ const DescriptionSection = styled.div`
 `;
 
 const EventItem = ({name,description, locationDescription, eventDate}) => (
-  <EventItemTemplate>
-    <TitleSection>{name}</TitleSection>
-    <LocationSection>{
-        locationDescription && locationDescription.length >0
-            ? locationDescription
-            : "Location TBC"
-    } </LocationSection>
-    <DateSection>
-      <DateBlock date={eventDate} />
-    </DateSection>
-    <DescriptionSection>{description.childMarkdownRemark.excerpt}</DescriptionSection>
+  <Link to={encodeURI(name)}>
+    <EventItemTemplate>
+      <TitleSection>{name}</TitleSection>
+      <LocationSection>{
+          locationDescription && locationDescription.length >0
+              ? locationDescription
+              : "Location TBC"
+      } </LocationSection>
+      <DateSection>
+        <DateBlock date={eventDate} />
+      </DateSection>
+      <DescriptionSection>{description.childMarkdownRemark.excerpt}</DescriptionSection>
     </EventItemTemplate>
-)
+  </Link>
+  )
 
 
 export default ({data}) => (
