@@ -24,9 +24,9 @@ jobs:
                 key: v1-dependencies-{{ checksum "package.json" }}
 
             # run tests!
-            - run:
-                name: Test
-                command: yarn test
+            # - run:
+            #    name: Test
+            #    command: yarn test
 
             - run:
                 name: Build
@@ -64,9 +64,9 @@ jobs:
                 key: v1-dependencies-{{ checksum "package.json" }}
 
             # run tests!
-            - run:
-                name: Test
-                command: yarn test
+            # - run:
+            #    name: Test
+            #    command: yarn test
 
             - run:
                 name: Build
