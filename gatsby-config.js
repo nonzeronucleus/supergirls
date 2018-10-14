@@ -2,7 +2,7 @@ require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: 'Supergirls Nottingham',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -18,7 +18,8 @@ module.exports = {
         icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
       },
     },
-    'gatsby-plugin-offline',
+    // 'gatsby-plugin-offline',
+    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-source-contentful`,
       options: {
@@ -27,5 +28,11 @@ module.exports = {
         environment: process.env.CONTENTFUL_ENVIRONMENT || 'master',
       },
     },
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography.js`,
+      },
+    }
   ],
 }

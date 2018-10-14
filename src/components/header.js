@@ -15,8 +15,8 @@ const Header = styled.nav`
   z-index: 3;
   width: 100%;
   height: 2.77778rem;
-  font-family: "Avenir Next", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 0.833333rem;
+  // font-family: "Avenir Next", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  // font-size: 0.833333rem;
   font-weight: 500;
   color: white;
   // background: rgb(219, 112, 147);
@@ -134,13 +134,14 @@ export default ({ children }) => (
               }
             }
           }
-        }     }
+        }
+      }
     `}
     render={data => (
       <Header>
         <LinkSection><Logo url={data.allContentfulAbout.edges[0].node.siteLogo.file.url}/>
           <Link to="/">Home</Link>
-          <Link to="/page-2">Events</Link>
+          <Link to="/events">Events</Link>
         </LinkSection>
         <SocialSection>
           <a href="https://twitter.com/PhraseArea?lang=en"><FaTwitter /></a>
