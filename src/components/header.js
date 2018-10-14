@@ -9,7 +9,7 @@ import {FaTwitter, FaFacebook} from "react-icons/fa";
 
 
 const Header = styled.nav`
-  position: fixed;
+  // position: fixed;
   left: 0px;
   box-sizing: border-box;
   z-index: 3;
@@ -80,39 +80,39 @@ const Logo = styled.div`
 
 
 
-const HeaderElement = styled.div`
-`;
+// const HeaderElement = styled.div`
+// `;
 
-const StyledLogo = styled.img`
-  width:64px;
-  height:64px;
-  padding: 0px;
-  margin:0px;
-`;
+// const StyledLogo = styled.img`
+//   width:64px;
+//   height:64px;
+//   padding: 0px;
+//   margin:0px;
+// `;
 
-const SocialLinks = styled.div`
-  // display: grid;
-  // grid-template-columns: repeat(auto-fill, 1fr);
-  // background-color:red;
-  // width:200px;
-  `;
-
-
-const SocialLink = styled.div`
-  // background-color: deepPink;
-  // width:auto;
-  // padding: 20px;
-  // color: #fff;
-  // border: 1px solid #fff;
-  justify-self: start;
-
-`;
+// const SocialLinks = styled.div`
+//   // display: grid;
+//   // grid-template-columns: repeat(auto-fill, 1fr);
+//   // background-color:red;
+//   // width:200px;
+//   `;
 
 
-const CenteredDiv = styled.div`
-align-self: center;
-justify-self: center;
-`;
+// const SocialLink = styled.div`
+//   // background-color: deepPink;
+//   // width:auto;
+//   // padding: 20px;
+//   // color: #fff;
+//   // border: 1px solid #fff;
+//   justify-self: start;
+
+// `;
+
+
+// const CenteredDiv = styled.div`
+// align-self: center;
+// justify-self: center;
+// `;
 
 
 // export default ({ children }) => (
@@ -123,7 +123,7 @@ justify-self: center;
 export default ({ children }) => (
   <StaticQuery
     query={graphql`
-      query AboutQuery {
+      query HeaderQuery {
         allContentfulAbout {
           edges {
             node {

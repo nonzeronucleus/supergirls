@@ -2,11 +2,31 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
+import styled from 'styled-components';
 
 import Header from './header'
 import './layout.css'
 
-const Layout = ({ children }) => (
+
+const Layout = styled.div`
+  display: flex;
+  // background:red;
+  // margin-left:100px;
+  flex-direction:column;
+`;
+
+const MainLayout = styled.div`
+  // display: flex;
+  // background:red;
+  margin-top:50px;
+  margin-left:100px;
+  margin-right:100px;
+  max-width: 1024px;
+
+  // flex-direction:column;
+`;
+
+export default ({ children }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -28,24 +48,26 @@ const Layout = ({ children }) => (
         >
           <html lang="en" />
         </Helmet>
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <div
-          style={{
-            margin: '0 auto',
-            maxWidth: 960,
-            padding: '0px 1.0875rem 1.45rem',
-            paddingTop: 0,
-          }}
-        >
-          {children}
-        </div>
+        <Layout>
+          <Header siteTitle={data.site.siteMetadata.title} />
+          <MainLayout
+            // style={{
+            //   margin: '0 auto',
+            //   maxWidth: 960,
+            //   padding: '0px 1.0875rem 1.45rem',
+            //   paddingTop: 0,
+            // }}
+          >
+            {children}
+          </MainLayout>
+        </Layout>
       </>
     )}
   />
 )
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
+// Layout.propTypes = {
+//   children: PropTypes.node.isRequired,
+// }
 
-export default Layout
+// export default Layout
