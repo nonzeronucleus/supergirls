@@ -128,9 +128,6 @@ workflows:
                 - master
           requires:
             - build-only
-          filters:
-            branches:
-              only: master
 
       - deploy-dev:
           requires:
