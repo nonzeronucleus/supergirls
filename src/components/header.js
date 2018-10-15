@@ -9,7 +9,7 @@ import {FaTwitter, FaFacebook} from "react-icons/fa";
 
 
 const Header = styled.nav`
-  // position: fixed;
+  position: fixed;
   left: 0px;
   box-sizing: border-box;
   z-index: 3;
@@ -23,6 +23,7 @@ const Header = styled.nav`
   background: green;
   transition: background 300ms ease-out 0s;
   padding: 0px;
+  margin-bottom:20px;
 
 
   display: flex;

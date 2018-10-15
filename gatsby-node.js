@@ -59,7 +59,6 @@ exports.createPages = ({ graphql, actions }) => {
       }
       `).then(result => {
         result.data.allContentfulEvent.edges.forEach(({ node }) => {
-            console.log({node});
           createPage({
             path: node.name,
             component: path.resolve(`./src/templates/event.js`),

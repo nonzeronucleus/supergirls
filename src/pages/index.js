@@ -1,10 +1,11 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components';
+
 import { StaticQuery, graphql } from 'gatsby'
 import _ from 'lodash';
 
-import Layout from '../components/layout'
+import Layout from '../components/layout';
 
 
 const MainPage = styled.div`
@@ -27,7 +28,8 @@ const MainImg = styled.img`
   margin-right:100px;
   -webkit-filter: drop-shadow(4px 4px 4px rgba(0,0,0,0.9)) opacity(.8) saturare(.7);
   filter: drop-shadow(4px 4px 4px rgba(0,0,0,0.9)) opacity(.8)  saturate(.7);
-  margin-right:0px;
+  // margin-right:0px;
+   margin-bottom:20px;
 `;
 
 const MainTitle = styled.h1`
@@ -38,8 +40,8 @@ const MainTitle = styled.h1`
 const MainBody = styled.div`
   grid-area: bodyText
   margin-left:20px;
-`;
-
+  margin-bottom:20px;
+  `;
 
 const IndexPage = () => (
   <StaticQuery

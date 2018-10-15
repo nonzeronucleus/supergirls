@@ -38,7 +38,7 @@ const EventHeadingTemplate = styled.div`
 
 const Location = ({locationDescription, locationURL}) =>
     locationURL
-        ? (<a href={locationURL}>{locationDescription}</a>)
+        ? (<a rel="nofollow" target="_blank" href={locationURL}>{locationDescription}</a>)
         : (<>{locationDescription}</>);
 
 

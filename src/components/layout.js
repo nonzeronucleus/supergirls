@@ -1,29 +1,22 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components';
-
 import Header from './header'
-// import './layout.css'
+import Footer from './Footer';
 
 
 const Layout = styled.div`
   display: flex;
-  // background:red;
-  // margin-left:100px;
   flex-direction:column;
+  height:100%;
 `;
 
 const MainLayout = styled.div`
-  // display: flex;
-  // background:red;
-  margin-top:50px;
+  margin-top:100px;
   margin-left:100px;
   margin-right:100px;
   max-width: 1024px;
-
-  // flex-direction:column;
 `;
 
 export default ({ children }) => (
@@ -50,21 +43,28 @@ export default ({ children }) => (
         </Helmet>
         <Layout>
           <Header siteTitle={data.site.siteMetadata.title} />
-          <MainLayout
-            // style={{
-            //   margin: '0 auto',
-            //   maxWidth: 960,
-            //   padding: '0px 1.0875rem 1.45rem',
-            //   paddingTop: 0,
-            // }}
-          >
+          <MainLayout>
             {children}
           </MainLayout>
+          <Footer />
         </Layout>
       </>
     )}
   />
 )
+
+
+// const L = styled.div`
+//   height:100%;
+//   background:blue;
+// `;
+
+// export default ({ children }) => (
+//   <L>
+//     A
+//   </L>
+// )
+
 
 // Layout.propTypes = {
 //   children: PropTypes.node.isRequired,
