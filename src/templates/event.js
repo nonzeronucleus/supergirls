@@ -1,7 +1,22 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import _ from 'lodash';
-import Layout from '../components/layout'
+import Layout from '../components/layout';
+import styled from 'styled-components';
+import EventHeading from '../components/EventHeading';
+
+const EventItemTemplate = styled.li`
+  display:grid;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "heading"
+    "description";
+
+  > * {
+    margin: 10px;
+  }
+`;
+
 
 
 export default ({data}) => {
@@ -18,13 +33,9 @@ export default ({data}) => {
 
   return (
     <Layout>
-      <h2>
-        {name}
-      </h2>
-      <div>{dateStr}</div>
-      <div dangerouslySetInnerHTML={{ __html: body }} />
-      <a href={locationURL}><div>Location: {locationDescription}</div></a>
+      <EventHeading {...{name, description, eventDate, locationDescription, locationURL}} />
 
+      <div dangerouslySetInnerHTML={{ __html: body }} />
     </Layout>
   )
 }
