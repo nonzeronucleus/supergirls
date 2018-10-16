@@ -4,8 +4,6 @@ import { StaticQuery, graphql } from 'gatsby'
 import { Link } from 'gatsby'
 
 import {FaTwitter, FaFacebook} from "react-icons/fa";
-// import FaFacebook from "react-icons/fa/facebook";
-// import FaGooglePlus from "react-icons/fa/google-plus";
 
 
 const Header = styled.nav`
@@ -15,8 +13,6 @@ const Header = styled.nav`
   z-index: 3;
   width: 100%;
   height: 2.77778rem;
-  // font-family: "Avenir Next", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  // font-size: 0.833333rem;
   font-weight: 500;
   color: white;
   // background: rgb(219, 112, 147);
@@ -79,48 +75,6 @@ const Logo = styled.div`
 
 
 
-
-
-// const HeaderElement = styled.div`
-// `;
-
-// const StyledLogo = styled.img`
-//   width:64px;
-//   height:64px;
-//   padding: 0px;
-//   margin:0px;
-// `;
-
-// const SocialLinks = styled.div`
-//   // display: grid;
-//   // grid-template-columns: repeat(auto-fill, 1fr);
-//   // background-color:red;
-//   // width:200px;
-//   `;
-
-
-// const SocialLink = styled.div`
-//   // background-color: deepPink;
-//   // width:auto;
-//   // padding: 20px;
-//   // color: #fff;
-//   // border: 1px solid #fff;
-//   justify-self: start;
-
-// `;
-
-
-// const CenteredDiv = styled.div`
-// align-self: center;
-// justify-self: center;
-// `;
-
-
-// export default ({ children }) => (
-//   <div>Test</div>
-// )
-
-
 export default ({ children }) => (
   <StaticQuery
     query={graphql`
@@ -152,17 +106,3 @@ export default ({ children }) => (
     )}
   />
 )
-
-
-
-
-
-// <HeaderElement>
-// <StyledLogo src={data.allContentfulAbout.edges[0].node.siteLogo.file.url} />
-// </HeaderElement>
-// <HeaderElement>
-// <CenteredDiv>A</CenteredDiv>
-// </HeaderElement>
-// <HeaderElement>
-// <CenteredDiv><SocialLink>A</SocialLink></CenteredDiv>
-// </HeaderElement>

@@ -1,39 +1,32 @@
 import React from 'react';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
+import {FaEnvelope} from "react-icons/fa";
 
-// const styles = {
-//   footer: style({
-//     width:'100%',
-//     gridArea:'footer',
-//     borderColor:'black',
-//     borderStyle:'solid',
-//     borderWidth:'1px 0px',
-//     fontSize:'16px',
-//     paddingTop:0,
-//     paddingBotton:0
-//   }),
-//   contentful: style({
-//     float:'right',
-//     marginRight:'10px',
-//     '> img': {
-//       width:'100px',
-//       marginBottom:'0px'
-//     }
-//   })
-// }
 
 const Footer = styled.footer`
     margin-top:auto;
     width:100%;
     grid-area:footer;
-    border-color:black;
-    border-style:solid;
-    border-width:1px 0px;
-    font-size:16px;
+    // border-color:black;
+    // border-style:solid;
+    // border-width:1px 0px;
     padding-top:0;
     padding-botton:0;
+    padding-left: 10px;
+    padding-right: 10px;
     margin-bottom:0px;
+    background: #283018;
+    color: #f0eceb;
+    min-height: 50px;
+
+    > a {
+      color: #f0eceb;
+      padding-right: 40px;
+      text-decoration:none;
+      vertical-align: middle;
+      font-size:14px;
+    }
 `;
 
 const Contentful = styled.a`
@@ -55,6 +48,10 @@ const Contentful = styled.a`
 export default ({ children, data }) =>
   <Footer>
     <Link to='/privacy' >Privacy notice</Link>
+
+    <a href="mailto:nottmsupergirls@gmail.com"><FaEnvelope/> nottmsupergirls@gmail.com</a>
+
+
     <Contentful href='https://www.contentful.com/' rel='nofollow' target='_blank' > <img
       src='https://images.ctfassets.net/fo9twyrwpveg/7F5pMEOhJ6Y2WukCa2cYws/398e290725ef2d3b3f0f5a73ae8401d6/PoweredByContentful_DarkBackground.svg'
       alt='Powered by Contentful' />
