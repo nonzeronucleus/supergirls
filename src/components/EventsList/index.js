@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import EventItem from './EventItem'
+import EventSummary from './EventSummary'
 
 
 const EventList = styled.ul `
@@ -25,7 +25,7 @@ const EventList = styled.ul `
 export default ({data}) => (
     <EventList>
         {data.allContentfulEvent.edges.map(({node}) => (
-            <EventItem key={node.contentful_id} {...node}/>
+            <EventSummary key={node.contentful_id} {...node}/>
         ))}
   </EventList>
 )

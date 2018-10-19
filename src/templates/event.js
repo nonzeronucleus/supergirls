@@ -3,12 +3,12 @@ import { graphql } from 'gatsby';
 import _ from 'lodash';
 import Layout from '../components/Layout';
 import styled from 'styled-components';
-import EventHeading from '../components/EventHeading';
-
+// import EventHeading from '../components/EventHeading';
+import EventItem from '../components/EventItem';
 
 const EventPage = styled.div `
-  margin-top:10px;
-  margin-left:10px;
+  // margin-top:10px;
+  // margin-left:10px;
 `;
 
 const EventItemTemplate = styled.li`
@@ -40,12 +40,12 @@ export default ({data}) => {
     ? `https://maps.google.com/?q=${location.lat},${location.lon}`
     : null;
 
+    const descriptionBody = <div dangerouslySetInnerHTML={{ __html: body }} />
+
   return (
     <Layout>
       <EventPage>
-        <EventHeading {...{name, description, eventDate, locationDescription, locationURL}} />
-
-        <DescriptionSection><div dangerouslySetInnerHTML={{ __html: body }} /></DescriptionSection>
+        <EventItem {...{name, eventDate, locationDescription, locationURL, descriptionBody}} />
       </EventPage>
     </Layout>
   )
