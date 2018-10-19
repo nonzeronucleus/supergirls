@@ -5,7 +5,8 @@ import styled from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby'
 import _ from 'lodash';
 
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
+import Hero from '../components/hero';
 
 
 const MainPage = styled.div`
@@ -13,13 +14,12 @@ const MainPage = styled.div`
   grid-template-columns: auto auto;
   grid-template-rows: auto auto;
   grid-template-areas:
-   "logo title"
-   "logo bodyText ";
+  "logo title"
+  "logo bodyText ";
 
-   > * {
+  > * {
     margin: 0px;
-   }
-`;
+ }`;
 
 const MainImg = styled.img`
   grid-area: logo;
@@ -35,6 +35,7 @@ const MainImg = styled.img`
 const MainTitle = styled.h1`
   grid-area: title
   margin-left:20px;
+  margin-bottom:20px;
 `;
 
 const MainBody = styled.div`
@@ -43,37 +44,44 @@ const MainBody = styled.div`
   margin-bottom:20px;
   `;
 
+
+
 const IndexPage = () => (
-  <StaticQuery
-    query={graphql`
-      query AboutQuery {
-        allContentfulAbout {
-          edges {
-            node {
-              aboutTitle
-              aboutBody {
-                aboutBody
-              }
-              mainPicture {
-                resize(width:256) {
-                  src
+    <StaticQuery
+      query={graphql`
+        query AboutQuery {
+          allContentfulAbout {
+            edges {
+              node {
+                aboutTitle
+                aboutBody {
+                  aboutBody
+                }
+                mainPicture {
+                  resize(width:1024) {
+                    src
+                  }
                 }
               }
             }
           }
         }
-      }
-    `}
-    render={data => (
-      <Layout>
-        <MainPage>
-          <MainImg src={_.get(data, 'allContentfulAbout.edges[0].node.mainPicture.resize.src', '')} />
-          <MainTitle>{_.get(data, 'allContentfulAbout.edges[0].node.aboutTitle', 'Supergirls')}</MainTitle>
-          <MainBody>{_.get(data, 'allContentfulAbout.edges[0].node.aboutBody.aboutBody', 'About')}</MainBody>
-        </MainPage>
-      </Layout>
-    )}
-    />
-)
+      `}
+      render={data => {
+        const mainSiteData = _.get(data, 'allContentfulAbout.edges[0].node', '');
+
+        return (
+          <Layout hero={<Hero img = {_.get(mainSiteData, 'mainPicture.resize.src', '')} />}>
+            <MainPage>
+              <MainTitle>{_.get(mainSiteData, 'aboutTitle', 'Supergirls')}</MainTitle>
+              <MainBody>{_.get(mainSiteData, 'aboutBody.aboutBody', 'About')}</MainBody>
+            </MainPage>
+          </Layout>
+        )}
+      }/>
+  )
+
+
+
 
 export default IndexPage

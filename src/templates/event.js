@@ -1,11 +1,18 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import _ from 'lodash';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import styled from 'styled-components';
 import EventHeading from '../components/EventHeading';
 
+
+const EventPage = styled.div `
+  margin-top:10px;
+  margin-left:10px;
+`;
+
 const EventItemTemplate = styled.li`
+  margin-left:10px;
   display:grid;
   grid-template-rows: auto auto;
   grid-template-areas:
@@ -17,7 +24,9 @@ const EventItemTemplate = styled.li`
   }
 `;
 
-
+const DescriptionSection = styled.div`
+  grid-area: description;
+`;
 
 export default ({data}) => {
   const node = _.get(data, 'allContentfulEvent.edges[0].node');
@@ -33,9 +42,11 @@ export default ({data}) => {
 
   return (
     <Layout>
-      <EventHeading {...{name, description, eventDate, locationDescription, locationURL}} />
+      <EventPage>
+        <EventHeading {...{name, description, eventDate, locationDescription, locationURL}} />
 
-      <div dangerouslySetInnerHTML={{ __html: body }} />
+        <DescriptionSection><div dangerouslySetInnerHTML={{ __html: body }} /></DescriptionSection>
+      </EventPage>
     </Layout>
   )
 }

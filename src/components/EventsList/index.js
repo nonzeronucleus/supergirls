@@ -17,6 +17,9 @@ const EventList = styled.ul `
     padding-bottom:20px;
     border-bottom-color: lightgray;
   }
+
+  margin-left:0;
+
 `;
 
 export default ({data}) => (
