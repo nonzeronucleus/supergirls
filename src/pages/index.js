@@ -19,7 +19,13 @@ const MainPage = styled.div`
 
   > * {
     margin: 0px;
- }`;
+  }
+
+  > h1 {
+    margin-left:20px;
+    margin-bottom:20px;
+  }
+ `;
 
 const MainImg = styled.img`
   grid-area: logo;
@@ -28,7 +34,6 @@ const MainImg = styled.img`
   margin-right:100px;
   -webkit-filter: drop-shadow(4px 4px 4px rgba(0,0,0,0.9)) opacity(.8) saturare(.7);
   filter: drop-shadow(4px 4px 4px rgba(0,0,0,0.9)) opacity(.8)  saturate(.7);
-  // margin-right:0px;
    margin-bottom:20px;
 `;
 
@@ -55,6 +60,10 @@ const IndexPage = () => (
               node {
                 aboutTitle
                 aboutBody {
+                  childMarkdownRemark {
+                    html
+                  }
+
                   aboutBody
                 }
                 mainPicture {
@@ -71,10 +80,13 @@ const IndexPage = () => (
         const mainSiteData = _.get(data, 'allContentfulAbout.edges[0].node', '');
 
         return (
-          <Layout hero={<Hero img = {_.get(mainSiteData, 'mainPicture.resize.src', '')} />}>
+          <Layout hero={
+            <Hero
+              img = {_.get(mainSiteData, 'mainPicture.resize.src', '')}
+              text = {_.get(mainSiteData, 'aboutTitle', 'Supergirls')}
+            />}>
             <MainPage>
-              <MainTitle>{_.get(mainSiteData, 'aboutTitle', 'Supergirls')}</MainTitle>
-              <MainBody>{_.get(mainSiteData, 'aboutBody.aboutBody', 'About')}</MainBody>
+              <MainBody dangerouslySetInnerHTML={{ __html: _.get(mainSiteData, 'aboutBody.childMarkdownRemark.html', 'About') }} />
             </MainPage>
           </Layout>
         )}
