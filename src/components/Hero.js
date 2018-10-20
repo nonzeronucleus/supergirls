@@ -11,7 +11,7 @@ const Hero = styled.div`
     // position: relative;
     // filter: grayscale(40%);
 
-    > div {
+    // > div {
         width:100%;
         min-height:400px;
         background-repeat: no-repeat;
@@ -19,19 +19,22 @@ const Hero = styled.div`
         // grid-area:hero;
         background-image: url("${props => props.img}");
         position: relative;
-        filter: contrast(80%) brightness(80%) grayscale(20%);
+        background-color:lightsteelblue;
+        background-blend-mode:multiply;
+        // filter: contrast(80%) brightness(80%) grayscale(20%);
 
-    }
+    // }
 
     margin-bottom:40px;
 
 
     > h2 {
         display: inline-block;
-        position: absolute;
+        position: relative;
         top: 10%;
-        font-size:48px;
-        font: 64px Lato, Mono-Space;
+        // font-size:48px;
+        font: 96px Amatic SC;
+        font-weight:bold;
 
         color:white;
         text-align:center;
@@ -40,14 +43,14 @@ const Hero = styled.div`
         // min-height:100px;
         // position: relative;
         // background:red;
-        margin-top:auto;
+        margin-top:10px;
         margin-bottom:auto;
     }
 
     > p {
         display: inline-block;
-        position: absolute;
-        top: 20%;
+        // position: absolute;
+        top: 40%;
         font-size:24px;
 
         color:white;
@@ -66,8 +69,6 @@ const Hero = styled.div`
 
 export default ({ img }) => (
     <Hero {...{ img }}>
-        <div>
-        </div>
         <h2>
             Nottingham Supergirls
         </h2>
