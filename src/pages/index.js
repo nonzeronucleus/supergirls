@@ -6,7 +6,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import _ from 'lodash';
 
 import Layout from '../components/Layout';
-import Hero from '../components/hero';
+import Hero from '../components/Hero';
 
 
 const MainPage = styled.div`
