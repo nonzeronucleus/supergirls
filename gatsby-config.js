@@ -25,7 +25,14 @@ module.exports = {
         name: "pages",
       },
     },
-
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Amatic SC`,
+        ]
+      }
+    },
     // 'gatsby-plugin-offline',
     `gatsby-transformer-remark`,
     {

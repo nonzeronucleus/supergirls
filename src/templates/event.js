@@ -1,8 +1,32 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import _ from 'lodash';
-import Layout from '../components/layout'
+import Layout from '../components/Layout';
+import styled from 'styled-components';
+// import EventHeading from '../components/EventHeading';
+import EventItem from '../components/EventItem';
 
+const EventPage = styled.div `
+  // margin-top:10px;
+  // margin-left:10px;
+`;
+
+const EventItemTemplate = styled.li`
+  margin-left:10px;
+  display:grid;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "heading"
+    "description";
+
+  > * {
+    margin: 10px;
+  }
+`;
+
+const DescriptionSection = styled.div`
+  grid-area: description;
+`;
 
 export default ({data}) => {
   const node = _.get(data, 'allContentfulEvent.edges[0].node');
@@ -16,15 +40,13 @@ export default ({data}) => {
     ? `https://maps.google.com/?q=${location.lat},${location.lon}`
     : null;
 
+    const descriptionBody = <div dangerouslySetInnerHTML={{ __html: body }} />
+
   return (
     <Layout>
-      <h2>
-        {name}
-      </h2>
-      <div>{dateStr}</div>
-      <div dangerouslySetInnerHTML={{ __html: body }} />
-      <a href={locationURL}><div>Location: {locationDescription}</div></a>
-
+      <EventPage>
+        <EventItem {...{name, eventDate, locationDescription, locationURL, descriptionBody}} />
+      </EventPage>
     </Layout>
   )
 }
