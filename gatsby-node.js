@@ -56,6 +56,25 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
         }
+        allContentfulNews {
+          edges {
+            node {
+              contentful_id
+              title
+              image {
+                file {
+                  url
+                }
+              }
+
+              body {
+                childMarkdownRemark {
+                  excerpt
+                }
+              }
+            }
+          }
+        }
       }
       `).then(result => {
         result.data.allContentfulEvent.edges.forEach(({ node }) => {
@@ -63,13 +82,21 @@ exports.createPages = ({ graphql, actions }) => {
             path: node.name,
             component: path.resolve(`./src/templates/event.js`),
             context: {
-              // Data passed to context is available
-              // in page queries as GraphQL variables.
               id: node.contentful_id,
             },
           })
-        })
-        resolve()
+        });
+        result.data.allContentfulNews.edges.forEach(({ node }) => {
+          console.log({node})
+          createPage({
+            path: node.title,
+            component: path.resolve(`./src/templates/news.js`),
+            context: {
+              id: node.contentful_id,
+            },
+          })
+        });
+        resolve();
       })
     })
   }

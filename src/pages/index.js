@@ -7,15 +7,12 @@ import _ from 'lodash';
 
 import Layout from '../components/Layout';
 import Hero from '../components/Hero';
+import NewsSummary from '../components/NewsSummary';
 
 
 const MainPage = styled.div`
-  display:grid;
-  grid-template-columns: auto auto;
-  grid-template-rows: auto auto;
-  grid-template-areas:
-  "logo title"
-  "logo bodyText ";
+  display:flex;
+  flex-direction:column;
 
   > * {
     margin: 0px;
@@ -25,30 +22,40 @@ const MainPage = styled.div`
     margin-left:20px;
     margin-bottom:20px;
   }
+  // overflow-y:auto;
  `;
-
-const MainImg = styled.img`
-  grid-area: logo;
-  width:256px;
-  object-fit:fill;
-  margin-right:100px;
-  -webkit-filter: drop-shadow(4px 4px 4px rgba(0,0,0,0.9)) opacity(.8) saturare(.7);
-  filter: drop-shadow(4px 4px 4px rgba(0,0,0,0.9)) opacity(.8)  saturate(.7);
-   margin-bottom:20px;
-`;
-
-const MainTitle = styled.h1`
-  grid-area: title
-  margin-left:20px;
-  margin-bottom:20px;
-`;
 
 const MainBody = styled.div`
   grid-area: bodyText
   margin-left:20px;
   margin-bottom:20px;
-  `;
+`;
 
+const Stories = styled.ul`
+display:inline-block;
+  grid-area: stories
+  margin-left:0px;
+  margin-bottom:20px;
+  float: left;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+  padding:0px;
+
+  > li {
+    display: inline-block;
+    width:48%;
+    margin-right:2px;
+    // background:blue;
+    list-style: none;
+    float:right;
+    content:"";
+    // border-width:1px;
+    // border-style:solid;
+    // border-color:black;
+
+  }
+`;
 
 
 const IndexPage = () => (
@@ -74,10 +81,29 @@ const IndexPage = () => (
               }
             }
           }
+          allContentfulNews {
+            edges {
+              node {
+                title
+                image {
+                  file {
+                    url
+                  }
+                }
+
+                body {
+                  childMarkdownRemark {
+                    excerpt
+                  }
+                }
+              }
+            }
+          }
         }
       `}
       render={data => {
         const mainSiteData = _.get(data, 'allContentfulAbout.edges[0].node', '');
+        const newsItems =  _.get(data, 'allContentfulNews.edges', []);
 
         return (
           <Layout hero={
@@ -87,13 +113,16 @@ const IndexPage = () => (
             />}>
             <MainPage>
               <MainBody dangerouslySetInnerHTML={{ __html: _.get(mainSiteData, 'aboutBody.childMarkdownRemark.html', 'About') }} />
-            </MainPage>
+              <Stories>{newsItems.map((newsItem, i) => (<li key={i}><NewsSummary {...newsItem.node} /></li>))}</Stories>
+
+              </MainPage>
           </Layout>
         )}
       }/>
   )
 
 
+  // <Stories>{newsItems.map((newsItem, i) => (<li></li><NewsSummary key={i} {...newsItem.node} />))}</Stories>
 
 
 export default IndexPage
