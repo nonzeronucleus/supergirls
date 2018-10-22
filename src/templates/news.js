@@ -6,7 +6,6 @@ import _ from 'lodash';
 
 const NewsPage = styled.div `
   margin-top:10px;
-  // margin-left:10px;
 `;
 
 

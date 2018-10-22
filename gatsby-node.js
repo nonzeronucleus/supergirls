@@ -10,16 +10,6 @@ const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
-    // const { createNodeField } = actions;
-    // console.log({node});
-//     if (node.internal.type === `MarkdownRemark`) {
-//         const slug = createFilePath({ node, getNode, basePath: `pages` })
-//         createNodeField({
-//         node,
-//         name: `slug`,
-//         value: slug,
-//         })
-//     }
 }
 
 
@@ -87,7 +77,6 @@ exports.createPages = ({ graphql, actions }) => {
           })
         });
         result.data.allContentfulNews.edges.forEach(({ node }) => {
-          console.log({node})
           createPage({
             path: node.title,
             component: path.resolve(`./src/templates/news.js`),
