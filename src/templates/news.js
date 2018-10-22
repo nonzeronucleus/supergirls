@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import styled from 'styled-components';
+import _ from 'lodash';
 
 const NewsPage = styled.div `
   margin-top:10px;
