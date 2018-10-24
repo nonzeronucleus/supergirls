@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
 import {FaEnvelope} from "react-icons/fa";
+import breakpoints from '../consts/breakpoints';
 
 const Footer = styled.div`
     width:100%;
@@ -12,7 +13,7 @@ const Footer = styled.div`
     margin-bottom:0px;
     background: #283018;
     color: #f0eceb;
-    min-height: 50px;
+    min-height: 75px;
 
     > a {
       color: #f0eceb;
@@ -21,6 +22,13 @@ const Footer = styled.div`
       vertical-align: middle;
       font-size:14px;
     }
+
+    @media only screen and (min-width: ${breakpoints.tablet}) {
+      min-height: 50px;
+    }
+
+
+
 `;
 
 const Contentful = styled.a`
