@@ -3,14 +3,8 @@ import Link from 'gatsby-link';
 import styled from 'styled-components';
 import {FaEnvelope} from "react-icons/fa";
 
-
-const Footer = styled.footer`
-    margin-top:auto;
+const Footer = styled.div`
     width:100%;
-    grid-area:footer;
-    // border-color:black;
-    // border-style:solid;
-    // border-width:1px 0px;
     padding-top:0;
     padding-botton:0;
     padding-left: 10px;

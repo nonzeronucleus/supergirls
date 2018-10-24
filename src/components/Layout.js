@@ -1,41 +1,48 @@
 import React from 'react'
-import Helmet from 'react-helmet'
+// import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components';
 import Header from './Header'
 import Footer from './Footer';
 import breakpoints from '../consts/breakpoints';
 
-const Layout = styled.div`
-  display: flex;
-  flex-direction:column;
-  height:100%;
-`;
+const Body = styled.div `
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    overflow: hidden;
+    height:100%;
 
-const HeaderBar = styled.div`
-  flex-shrink: 0;
-  display: inline-flex;
-`;
 
-const Scrollable = styled.div`
-  flex-grow: 1;  /*ensures that the container will take up the full height of the parent container*/
-  overflow-y: auto;  /*adds scroll to this container*/
-`;
+    .header {
+      flex: 0 0 auto;
+    }
 
-const FooterBar = styled.div`
-  flex-shrink: 0;
-  display: inline-flex;
-  margin-bottom: 0px;
-`;
+    .body {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      overflow: auto;
+    }
 
-const Body = styled.div`
-  margin-left:20px;
-  margin-right:20px;
-  @media only screen and (min-width: ${breakpoints.tablet}) {
-    margin-left:100px;
-    margin-right:100px;
-    max-width: 1024px;
-  }
+    .content {
+      flex: 1 1 auto;
+    }
+
+    .main {
+      margin-left:20px;
+      margin-right:20px;
+      @media only screen and (min-width: ${breakpoints.tablet}) {
+        margin-left:100px;
+        margin-right:100px;
+        max-width: 1024px;
+      }
+    }
+
+    .footer {
+      flex: 0 0 auto;
+    }
+
 `;
 
 
@@ -51,16 +58,21 @@ export default ({ children, hero }) => (
       }
     `}
     render={data => (
-      <Layout>
-        <HeaderBar><Header /></HeaderBar>
-        <Scrollable className="body">
-          {hero}
-          <Body>
-            {children}
-          </Body>
-        </Scrollable>
-        <FooterBar><Footer /></FooterBar>
-        </Layout>
-      )}
+      <Body>
+        <div class="header">
+          <Header />
+        </div>
+        <div class="body">
+          <div class="content">
+            {hero}
+            <div class="main">
+              {children}
+            </div>
+          </div>
+          <div class="footer"><Footer /></div>
+        </div>
+      </Body>
+
+    )}
   />
-)
+);
