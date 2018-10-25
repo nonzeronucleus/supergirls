@@ -59,17 +59,17 @@ export default ({ children, hero }) => (
     `}
     render={data => (
       <Body>
-        <div class="header">
+        <div className="header">
           <Header />
         </div>
-        <div class="body">
-          <div class="content">
+        <div className="body">
+          <div className="content">
             {hero}
-            <div class="main">
+            <div className="main">
               {children}
             </div>
           </div>
-          <div class="footer"><Footer /></div>
+          <div className="footer"><Footer /></div>
         </div>
       </Body>
 
