@@ -2,16 +2,47 @@ import React from 'react';
 import { Link } from 'gatsby'
 import { get } from 'lodash';
 import styled from 'styled-components';
+import breakpoints from '../consts/breakpoints';
 
 
 const NewsSummary = styled(Link)`
     display: grid;
-    grid-template-areas:
-        "image title"
-        "image body";
 
-    grid-template-rows: 30px auto;
-    grid-template-columns 40% auto;
+    grid-template-areas:
+        "image"
+        "title"
+        "body";
+
+    grid-template-rows: 160px 30px auto;
+    grid-template-columns auto;
+
+    > img {
+        grid-area: image;
+        box-sizing: content;
+        width:160px;
+        height:160px;
+        object-fit: cover;
+        margin-bottom: 0;
+    }
+
+    @media only screen and (min-width: ${breakpoints.desktop}) {
+        grid-template-areas:
+            "image title"
+            "image body";
+
+        grid-template-rows: 30px auto;
+        grid-template-columns 40% auto;
+
+        > img {
+            grid-area: image;
+            box-sizing: content;
+            width:100%;
+            height:100%;
+            object-fit: cover;
+            margin-bottom: 0;
+        }
+    }
+
     text-decoration: none;
     color: black;
 
@@ -25,14 +56,6 @@ const NewsSummary = styled(Link)`
         padding: 4px;
     }
 
-    > img {
-        grid-area: image;
-        box-sizing: content;
-        width:100%;
-        height:100%;
-        object-fit: cover;
-        margin-bottom: 0;
-    }
 
 
     > h2 {

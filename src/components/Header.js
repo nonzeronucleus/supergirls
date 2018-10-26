@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby'
 import { Link } from 'gatsby'
 
-import {FaTwitter, FaFacebook} from "react-icons/fa";
+import {FaEnvelope} from "react-icons/fa";
 
 
 const Header = styled.nav`
@@ -99,8 +99,7 @@ export default ({ children }) => (
           <Link to="/events">Events</Link>
         </LinkSection>
         <SocialSection>
-          <a href="https://twitter.com/PhraseArea?lang=en"><FaTwitter /></a>
-          <a href="https://www.facebook.com"><FaFacebook /></a>
+        <a href="mailto:nottmsupergirls@gmail.com"><FaEnvelope/></a>
         </SocialSection>
       </Header>
     )}
