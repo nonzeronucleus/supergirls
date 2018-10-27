@@ -28,8 +28,8 @@ const Hero = styled.div`
         margin-bottom:auto;
     }
 
-    @media only screen and (min-width: ${breakpoints.tablet}) {
-        min-height:400px;
+    @media only screen and (min-width: ${breakpoints.mobile}) {
+            min-height:300px;
 
         position: relative;
 
@@ -64,6 +64,15 @@ const Hero = styled.div`
             margin-bottom:auto;
         }
     }
+
+    @media only screen and (min-width: ${breakpoints.wide_desktop}) {
+        min-height:400px;
+    }
+
+    @media only screen and (min-width: ${breakpoints.ultra_wide_desktop}) {
+        min-height:500px;
+    }
+
 `;
 
 
