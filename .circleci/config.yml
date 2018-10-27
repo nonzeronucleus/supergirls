@@ -98,6 +98,11 @@ jobs:
                 name: Deploy to S3
                 command: aws s3 sync public s3://ip-supergirls --delete
 
+            - run:
+                name: Invalidate
+                command: aws cloudfront create-invalidation --distribution-id EMIX0KMQZU09H --paths /*
+
+
     deploy-dev:
         docker:
             - image: circleci/node:8.9
