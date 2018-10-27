@@ -84,7 +84,7 @@ const IndexPage = () => (
                 aboutBody
               }
               mainPicture {
-                resize(width:1024) {
+                resize(width:1024, height:400) {
                   src
                 }
               }

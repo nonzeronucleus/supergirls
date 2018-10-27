@@ -36,8 +36,8 @@ const NewsSummary = styled(Link)`
         > img {
             grid-area: image;
             box-sizing: content;
-            width:100%;
-            height:100%;
+            max-width:200px;
+            height:200px;
             object-fit: cover;
             margin-bottom: 0;
         }
