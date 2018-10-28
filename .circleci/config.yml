@@ -3,7 +3,7 @@ jobs:
     #need separate build step to accept calls from contentful webhook
     build:
         docker:
-            - image: circleci/node:8.9
+            - image: circleci/node:latest-browsers
 
         working_directory: ~/repo
 
