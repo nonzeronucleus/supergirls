@@ -31,43 +31,16 @@ const Stories = styled.ul`
     > li {
       width:48%;
       margin-right:2px;
-      float:right;
+    //   float:right;
     }
   }
 `;
 
 
-const IndexPage = () => (
-  <StaticQuery
-    query={graphql`
-        query NewsQuery {
-            allContentfulNews {
-                edges {
-                    node {
-                        title
-                        image {
-                            file {
-                                url
-                            }
-                        }
-                        body {
-                            childMarkdownRemark {
-                            excerpt
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    `}
-    render={data => {
-      const newsItems =  _.get(data, 'allContentfulNews.edges', []);
+const IndexPage = ({newsItems}) => (
 
-      return (
-            <Stories>{newsItems.map((newsItem, i) => (<li key={i}><NewsSummary {...newsItem.node} /></li>))}</Stories>
-      )}
-    }
-  />
+    <Stories>{newsItems.map((newsItem, i) => (<li key={i}><NewsSummary {...newsItem} /></li>))}</Stories>
 )
+
 
 export default IndexPage
