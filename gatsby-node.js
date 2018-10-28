@@ -65,6 +65,19 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
         }
+        allContentfulPage {
+          edges {
+            node {
+              contentful_id
+              pageUrl
+              body {
+                childMarkdownRemark {
+                  html
+                }
+              }
+            }
+          }
+        }
       }
       `).then(result => {
         result.data.allContentfulEvent.edges.forEach(({ node }) => {
@@ -80,6 +93,15 @@ exports.createPages = ({ graphql, actions }) => {
           createPage({
             path: node.title,
             component: path.resolve(`./src/templates/news.js`),
+            context: {
+              id: node.contentful_id,
+            },
+          })
+        });
+        result.data.allContentfulPage.edges.forEach(({ node }) => {
+          createPage({
+            path: `pages/${node.pageUrl}`,
+            component: path.resolve(`./src/templates/general-page.js`),
             context: {
               id: node.contentful_id,
             },

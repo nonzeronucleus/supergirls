@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import _ from 'lodash';
 
 const NewsPage = styled.div `
-  margin-top:10px;
+//   margin-top:10px;
 `;
 
 

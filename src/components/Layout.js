@@ -32,6 +32,7 @@ const Body = styled.div `
     .main {
       margin-left:20px;
       margin-right:20px;
+      margin-top:20px;
       @media only screen and (min-width: ${breakpoints.tablet}) {
         margin-left:100px;
         margin-right:100px;
@@ -72,7 +73,6 @@ export default ({ children, hero }) => (
           <div className="footer"><Footer /></div>
         </div>
       </Body>
-
     )}
   />
 );
