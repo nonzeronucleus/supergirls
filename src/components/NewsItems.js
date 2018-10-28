@@ -39,7 +39,8 @@ const Stories = styled.ul`
 
 const IndexPage = ({newsItems}) => (
 
-    <Stories>{newsItems.map((newsItem, i) => (<li key={i}><NewsSummary {...newsItem} /></li>))}</Stories>
+    <Stories>
+        {newsItems && newsItems.map((newsItem, i) => (<li key={i}><NewsSummary {...newsItem} /></li>))}</Stories>
 )
 
 
