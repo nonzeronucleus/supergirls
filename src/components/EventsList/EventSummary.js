@@ -6,7 +6,7 @@ import EventItem from '../EventItem';
 
 
 export default ({name,description, locationDescription, eventDate}) => (
-  <Link to={encodeURI(name)}>
+  <Link to={`events/${encodeURI(name)}`}>
     <EventItem {...{name, locationDescription, eventDate}} descriptionBody={description.childMarkdownRemark.excerpt} />
   </Link>
 )

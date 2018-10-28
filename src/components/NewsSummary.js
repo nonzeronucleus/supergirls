@@ -72,24 +72,9 @@ export default ({title, body, image}) => {
     const excerpt = get(body, 'childMarkdownRemark.excerpt', '');
     const imgUrl = get(image, 'file.url', '');
 
-    return (<NewsSummary to={title}>
+    return (<NewsSummary to={`news/${title}`}>
         <img alt="" src={imgUrl}/>
         <h2>{title}</h2>
         <p>{excerpt}</p>
     </NewsSummary>)
 }
-
-
-
-// export default ({title, body, image}) => {
-//     const excerpt = get(body, 'childMarkdownRemark.excerpt', '');
-//     const imgUrl = get(image, 'file.url', '');
-
-//     return (
-//         <NewsSummary>
-//             <img src={imgUrl}></img>
-//             <h2>{title}</h2>
-//             <p>{excerpt}</p>
-//         </NewsSummary>
-//     );
-// }

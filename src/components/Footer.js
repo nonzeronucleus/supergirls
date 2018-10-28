@@ -49,7 +49,7 @@ const Contentful = styled.a`
 
 export default ({ children, data }) =>
   <Footer>
-    <Link to='/pages/privacy' >Privacy notice</Link>
+    <Link to='/privacy' >Privacy notice</Link>
 
     <a href="mailto:nottmsupergirls@gmail.com"><FaEnvelope/> nottmsupergirls@gmail.com</a>
 
