@@ -65,11 +65,24 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
         }
+        allContentfulPage {
+          edges {
+            node {
+              contentful_id
+              pageUrl
+              body {
+                childMarkdownRemark {
+                  html
+                }
+              }
+            }
+          }
+        }
       }
       `).then(result => {
         result.data.allContentfulEvent.edges.forEach(({ node }) => {
           createPage({
-            path: node.name,
+            path: `events/${node.name}`,
             component: path.resolve(`./src/templates/event.js`),
             context: {
               id: node.contentful_id,
@@ -78,8 +91,17 @@ exports.createPages = ({ graphql, actions }) => {
         });
         result.data.allContentfulNews.edges.forEach(({ node }) => {
           createPage({
-            path: node.title,
+            path: `news/${node.title}`,
             component: path.resolve(`./src/templates/news.js`),
+            context: {
+              id: node.contentful_id,
+            },
+          })
+        });
+        result.data.allContentfulPage.edges.forEach(({ node }) => {
+          createPage({
+            path: node.pageUrl,
+            component: path.resolve(`./src/templates/general-page.js`),
             context: {
               id: node.contentful_id,
             },

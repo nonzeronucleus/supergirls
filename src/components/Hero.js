@@ -10,7 +10,7 @@ const Hero = styled.div`
     background-blend-mode:multiply;
     background-repeat: no-repeat;
     background-size:cover;
-    margin-bottom:40px;
+    // margin-bottom:40px;
     grid-area:hero;
 
     > h2 {

@@ -17,6 +17,10 @@ export default () => (
               name
               eventDate
               locationDescription
+              location {
+                lon
+                lat
+              }
 
               description {
                 childMarkdownRemark {
