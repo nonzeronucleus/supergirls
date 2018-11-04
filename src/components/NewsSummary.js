@@ -73,13 +73,15 @@ const NewsSummary = styled(Link)`
 `;
 
 
-export default ({title, body, image}) => {
-    const excerpt = get(body, 'childMarkdownRemark.excerpt', '');
+export default ({title, body, image, summary}) => {
+    const summaryText = summary
+        ? summary
+        : get(body, 'childMarkdownRemark.excerpt', '')
     const imgUrl = get(image, 'resize.src', '');
 
     return (<NewsSummary to={`news/${title}`}>
         <img alt="" src={imgUrl}/>
         <h2>{title}</h2>
-        <p>{excerpt}</p>
+        <p>{summaryText}</p>
     </NewsSummary>)
 }

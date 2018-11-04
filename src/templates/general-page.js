@@ -52,6 +52,7 @@ export const query = graphql`
                 url
               }
             }
+            summary
             body {
               childMarkdownRemark {
                 excerpt
