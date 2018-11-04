@@ -9,7 +9,7 @@ import breakpoints from '../consts/breakpoints';
 const Body = styled.div `
     display: flex;
     flex-direction: column;
-    margin: 0;
+    // margin: 0;
     overflow: hidden;
     height:100%;
 
@@ -30,14 +30,31 @@ const Body = styled.div `
     }
 
     .main {
-      margin-left:20px;
-      margin-right:20px;
+      margin-left:auto;
+      margin-right:auto;
+      max-width: 800px;
+      padding-left:40px;
+      padding-right:40px;
+
       margin-top:20px;
       @media only screen and (min-width: ${breakpoints.tablet}) {
-        margin-left:100px;
-        margin-right:100px;
+        padding-left:40px;
+        padding-right:40px;
+
+        // margin-left:100px;
+        // margin-right:100px;
+        max-width: 800px;
+      }
+
+      @media only screen and (min-width: ${breakpoints.desktop}) {
+        padding-left:40px;
+        padding-right:40px;
+
+        // margin-left:100px;
+        // margin-right:100px;
         max-width: 1024px;
       }
+
     }
 
     .footer {

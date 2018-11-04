@@ -7,20 +7,25 @@ import breakpoints from '../consts/breakpoints';
 
 const NewsSummary = styled(Link)`
     display: grid;
+    // background-color: ##e8edf3;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #e8edf3;
 
     grid-template-areas:
         "image"
         "title"
         "body";
 
-    grid-template-rows: 160px 30px auto;
-    grid-template-columns auto;
+        grid-template-rows: auto 30px auto ;
+        grid-template-columns auto;
 
     > img {
+        padding: 0px;
         grid-area: image;
         box-sizing: content;
-        width:160px;
-        height:160px;
+        width:100%;
+        height:300px;
         object-fit: cover;
         margin-bottom: 0;
     }
@@ -70,7 +75,7 @@ const NewsSummary = styled(Link)`
 
 export default ({title, body, image}) => {
     const excerpt = get(body, 'childMarkdownRemark.excerpt', '');
-    const imgUrl = get(image, 'file.url', '');
+    const imgUrl = get(image, 'resize.src', '');
 
     return (<NewsSummary to={`news/${title}`}>
         <img alt="" src={imgUrl}/>

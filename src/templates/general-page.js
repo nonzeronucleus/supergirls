@@ -45,6 +45,9 @@ export const query = graphql`
           newsItems {
             title
             image {
+              resize(width:800 , height:800, cropFocus: BOTTOM) {
+                src
+              }
               file {
                 url
               }

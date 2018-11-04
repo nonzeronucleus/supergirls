@@ -14,14 +14,17 @@ const Stories = styled.ul`
 
     display: inline-block;
     list-style: none;
+    margin-bottom:40px;
   }
 
 
+
   @media only screen and (min-width: ${breakpoints.tablet}) {
+    margin:20px;
+
     display:inline-block;
     grid-area: stories
     margin-left:0px;
-    margin-bottom:20px;
     float: left;
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
@@ -29,9 +32,11 @@ const Stories = styled.ul`
     padding:0px;
 
     > li {
-      width:48%;
-      margin-right:2px;
-    //   float:right;
+      width:50%;
+      margin-left:0px;
+      margin-right:0px;
+      padding-left:2px;
+      padding-right: 2px;
     }
   }
 `;
