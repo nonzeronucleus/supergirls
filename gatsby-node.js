@@ -7,13 +7,29 @@
 // You can delete this file if you're not using it
 
 const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
+const { createRemoteFileNode } = require(`gatsby-source-filesystem`)
 
-exports.onCreateNode = ({ node, getNode, actions }) => {
+exports.onCreateNode = async ({ node, getNode, actions, store, cache, createNodeId }) => {
+  const {file} = node;
+
+  if(file) {
+    const { createNode, createNodeField } = actions;
+    const fileNode = await createRemoteFileNode({
+      url: `http:${file.url}`,
+      store,
+      cache,
+      createNode,
+      createNodeId,
+      // auth: _auth,
+    })
+
+    if(fileNode) {
+      node.localFile___NODE = fileNode.id
+    }
+
+    console.log({node});
+  }
 }
-
-
-
 
 exports.createPages = ({ graphql, actions }) => {
     const { createPage } = actions
