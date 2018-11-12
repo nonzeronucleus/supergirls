@@ -32,7 +32,7 @@ export const query = graphql`
             title
             image {
                 file {
-                url
+                    url
                 }
             }
 

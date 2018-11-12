@@ -20,15 +20,14 @@ exports.onCreateNode = async ({ node, getNode, actions, store, cache, createNode
       cache,
       createNode,
       createNodeId,
-      // auth: _auth,
     })
 
     if(fileNode) {
       node.localFile___NODE = fileNode.id
     }
-
-    console.log({node});
   }
+
+  // console.log({node});
 }
 
 exports.createPages = ({ graphql, actions }) => {
@@ -44,21 +43,6 @@ exports.createPages = ({ graphql, actions }) => {
             node {
               contentful_id
               name
-              eventDate
-              location {
-                lon
-                lat
-              }
-              locationDescription
-
-              description {
-                description
-                childMarkdownRemark {
-                  excerpt
-                  rawMarkdownBody
-                  html
-                }
-              }
             }
           }
         }
@@ -67,17 +51,6 @@ exports.createPages = ({ graphql, actions }) => {
             node {
               contentful_id
               title
-              image {
-                file {
-                  url
-                }
-              }
-
-              body {
-                childMarkdownRemark {
-                  excerpt
-                }
-              }
             }
           }
         }
@@ -86,11 +59,6 @@ exports.createPages = ({ graphql, actions }) => {
             node {
               contentful_id
               pageUrl
-              body {
-                childMarkdownRemark {
-                  html
-                }
-              }
             }
           }
         }
