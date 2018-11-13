@@ -58,6 +58,13 @@ export const query = graphql`
               file {
                 url
               }
+              localFile {
+                childImageSharp {
+                  fixed {
+                    src
+                  }
+                }
+              }
             }
             summary
             body {

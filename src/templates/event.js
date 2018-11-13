@@ -7,8 +7,6 @@ import styled from 'styled-components';
 import EventItem from '../components/EventItem';
 
 const EventPage = styled.div `
-  // margin-top:10px;
-  // margin-left:10px;
 `;
 
 const EventItemTemplate = styled.li`
