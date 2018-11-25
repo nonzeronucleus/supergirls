@@ -39,12 +39,41 @@ const EventHeadingTemplate = styled.div`
 
 `;
 
+const Button = styled.button`
+    color: red;
+    margin-left: 20px;
+    background:    #ffffff;
+    background:    -webkit-linear-gradient(#ffffff, #ffffff);
+    background:    linear-gradient(#ffffff, #ffffff);
+    border-radius: 1000px;
+    padding:       8px 20px;
+    color:         #000000;
+    display:       inline-block;
+    font:          normal 400 18px/1 "Calibri", sans-serif;
+    text-align:    center;
+    border-width: 1px;
+`;
 
-const Location = ({locationDescription, locationURL}) =>
-    <input type="button" value={locationDescription} onClick={(event) => {
-        window.open(locationURL);
-        event.preventDefault();
-    }} />
+
+
+const Location = ({locationURL, locationDescription}) => (
+    <div>{locationDescription}
+        <Button onClick={(event) => {
+            window.open(locationURL);
+            event.preventDefault();
+        }} >Map</Button>
+    </div>
+)
+
+
+// const Location = ({locationDescription, locationURL, showButton}) =>
+// {
+//     return showButton
+//         ? (<div>{locationDescription}<LocationButton {...{locationURL}} /></div>)
+//         : (<a href={locationURL} target="_blank">{locationDescription}</a>)
+// }
+
+
 
 
 export default ({name,locationDescription, eventDate, locationURL}) => (

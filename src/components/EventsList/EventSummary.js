@@ -4,6 +4,17 @@ import _ from 'lodash';
 import { Link } from 'gatsby'
 import EventItem from '../EventItem';
 
+const ItemLink = styled(Link)`
+  text-decoration: underline;
+  > * {
+
+    :hover {
+      text-decoration:underline;
+    }
+  }
+
+`;
+
 
 export default ({name, description, locationDescription, shortDescription, eventDate, location}) => {
   const locationURL = location
@@ -13,9 +24,14 @@ export default ({name, description, locationDescription, shortDescription, event
   const summary = shortDescription || description.childMarkdownRemark.excerpt;
 
   return (
-    <Link to={`events/${encodeURI(name)}`}>
+    <>
+    <ItemLink to={`events/${encodeURI(name)}`}>
       <EventItem {...{name, locationDescription, eventDate, locationURL}} descriptionBody={summary} />
-    </Link>
+    </ItemLink>
+    <ItemLink to={`events/${encodeURI(name)}`}>
+      <EventItem {...{name, locationDescription, eventDate, locationURL}} descriptionBody={summary} />
+    </ItemLink>
+    </>
   )
 }
 
