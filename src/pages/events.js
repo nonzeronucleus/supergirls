@@ -27,6 +27,8 @@ export default () => (
                   excerpt
                 }
               }
+
+              shortDescription
             }
           }
         }
