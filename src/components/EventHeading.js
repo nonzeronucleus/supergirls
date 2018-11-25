@@ -17,6 +17,11 @@ const LocationSection = styled.div`
   grid-area: location;
   font-weight: 200;
   font-style: italic;
+
+  > input {
+      border-width:0;
+      text-decoration:underline;
+  }
 `;
 
 const EventHeadingTemplate = styled.div`
@@ -35,11 +40,11 @@ const EventHeadingTemplate = styled.div`
 `;
 
 
-
 const Location = ({locationDescription, locationURL}) =>
-    locationURL
-        ? (<a rel="nofollow" target="_blank" href={locationURL}>{locationDescription}</a>)
-        : (<>{locationDescription}</>);
+    <input type="button" value={locationDescription} onClick={(event) => {
+        window.open(locationURL);
+        event.preventDefault();
+    }} />
 
 
 export default ({name,locationDescription, eventDate, locationURL}) => (

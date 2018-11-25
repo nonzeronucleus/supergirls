@@ -77,7 +77,7 @@ export default ({title, body, image, summary}) => {
     const summaryText = summary
         ? summary
         : get(body, 'childMarkdownRemark.excerpt', '')
-    const imgUrl = get(image, 'resize.src', '');
+    const imgUrl = get(image, 'localFile.childImageSharp.fixed.src', '');
 
     return (<NewsSummary to={`news/${title}`}>
         <img alt="" src={imgUrl}/>

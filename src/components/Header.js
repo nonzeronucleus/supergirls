@@ -99,7 +99,7 @@ export default ({ children }) => (
           <Link to="/events">Events</Link>
         </LinkSection>
         <SocialSection>
-        <a href="mailto:nottmsupergirls@gmail.com"><FaEnvelope/></a>
+        <a href="mailto:supergirlsnotts@gmail.com"><FaEnvelope/></a>
         </SocialSection>
       </Header>
     )}

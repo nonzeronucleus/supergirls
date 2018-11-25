@@ -7,13 +7,28 @@
 // You can delete this file if you're not using it
 
 const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
+const { createRemoteFileNode } = require(`gatsby-source-filesystem`)
 
-exports.onCreateNode = ({ node, getNode, actions }) => {
+exports.onCreateNode = async ({ node, getNode, actions, store, cache, createNodeId }) => {
+  const {file} = node;
+
+  if(file) {
+    const { createNode, createNodeField } = actions;
+    const fileNode = await createRemoteFileNode({
+      url: `http:${file.url}`,
+      store,
+      cache,
+      createNode,
+      createNodeId,
+    })
+
+    if(fileNode) {
+      node.localFile___NODE = fileNode.id
+    }
+  }
+
+  // console.log({node});
 }
-
-
-
 
 exports.createPages = ({ graphql, actions }) => {
     const { createPage } = actions
@@ -28,21 +43,6 @@ exports.createPages = ({ graphql, actions }) => {
             node {
               contentful_id
               name
-              eventDate
-              location {
-                lon
-                lat
-              }
-              locationDescription
-
-              description {
-                description
-                childMarkdownRemark {
-                  excerpt
-                  rawMarkdownBody
-                  html
-                }
-              }
             }
           }
         }
@@ -51,17 +51,6 @@ exports.createPages = ({ graphql, actions }) => {
             node {
               contentful_id
               title
-              image {
-                file {
-                  url
-                }
-              }
-
-              body {
-                childMarkdownRemark {
-                  excerpt
-                }
-              }
             }
           }
         }
@@ -70,11 +59,6 @@ exports.createPages = ({ graphql, actions }) => {
             node {
               contentful_id
               pageUrl
-              body {
-                childMarkdownRemark {
-                  html
-                }
-              }
             }
           }
         }

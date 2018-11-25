@@ -27,23 +27,23 @@ export default ({data}) => {
 export const query = graphql`
     query($id:String) {
         allContentfulNews (filter: {contentful_id: {eq: $id}}) {
-        edges {
-            node {
-            title
-            image {
-                file {
-                url
-                }
-            }
+            edges {
+                node {
+                    title
+                    image {
+                        file {
+                            url
+                        }
+                    }
 
-            body {
-                childMarkdownRemark {
-                excerpt
-                html
+                    body {
+                        childMarkdownRemark {
+                            excerpt
+                            html
+                        }
+                    }
                 }
             }
-            }
-        }
         }
     }
 `;

@@ -10,7 +10,7 @@ import NewsItems from '../components/NewsItems';
 export default ({data}) => {
   const node = _.get(data, 'allContentfulPage.edges[0].node');
   const html = _.get(node, 'body.childMarkdownRemark.html');
-  const img = _.get(node, 'bannerImg.resize.src', null);
+  const img = _.get(node, 'bannerImg.localFile.childImageSharp.fixed.src', null);
   const text = _.get(node, 'bannerText', null);
   const newsItems = _.get(node, 'newsItems', null);
 
@@ -40,6 +40,13 @@ export const query = graphql`
             resize(width:1024, height:400) {
               src
             }
+            localFile {
+              childImageSharp {
+                fixed(width: 1024, height: 400) {
+                  src
+                }
+              }
+            }
           }
           bannerText
           newsItems {
@@ -50,6 +57,13 @@ export const query = graphql`
               }
               file {
                 url
+              }
+              localFile {
+                childImageSharp {
+                  fixed {
+                    src
+                  }
+                }
               }
             }
             summary
