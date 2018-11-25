@@ -28,9 +28,6 @@ export default ({name, description, locationDescription, shortDescription, event
     <ItemLink to={`events/${encodeURI(name)}`}>
       <EventItem {...{name, locationDescription, eventDate, locationURL}} descriptionBody={summary} />
     </ItemLink>
-    <ItemLink to={`events/${encodeURI(name)}`}>
-      <EventItem {...{name, locationDescription, eventDate, locationURL}} descriptionBody={summary} />
-    </ItemLink>
     </>
   )
 }
