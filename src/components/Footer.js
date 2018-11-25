@@ -51,7 +51,7 @@ export default ({ children, data }) =>
   <Footer>
     <Link to='/privacy' >Privacy notice</Link>
 
-    <a href="mailto:nottmsupergirls@gmail.com"><FaEnvelope/> nottmsupergirls@gmail.com</a>
+    <a href="mailto:supergirlsnotts@gmail.com"><FaEnvelope/> supergirlsnotts@gmail.com</a>
 
 
     <Contentful href='https://www.contentful.com/' rel='nofollow' target='_blank' > <img
