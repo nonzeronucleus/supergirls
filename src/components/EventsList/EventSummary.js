@@ -6,7 +6,7 @@ import EventItem from '../EventItem';
 
 const ItemLink = styled(Link)`
   text-decoration: underline;
-  > * {
+  >  * {
 
     :hover {
       text-decoration:underline;
@@ -18,7 +18,7 @@ const ItemLink = styled(Link)`
 
 export default ({name, description, locationDescription, shortDescription, eventDate, location}) => {
   const locationURL = location
-    ? `https://maps.google.com/?q=${location.lat},${location.lon}`
+    ? `//maps.google.com/?q=${location.lat},${location.lon}`
     : null;
 
   const summary = shortDescription || description.childMarkdownRemark.excerpt;

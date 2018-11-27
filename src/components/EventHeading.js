@@ -9,6 +9,7 @@ const TitleSection = styled.h2`
 
 const DateSection = styled.div`
   grid-area: date;
+
 `;
 
 const LocationSection = styled.div`
@@ -59,8 +60,16 @@ const Button = styled.button`
 const Location = ({locationURL, locationDescription}) => (
     <div>{locationDescription}
         <Button onClick={(event) => {
-            window.open(locationURL);
-            event.preventDefault();
+            if /* if we're on iOS, open in Apple Maps */
+            ((navigator.platform.indexOf("iPhone") != -1) ||
+             (navigator.platform.indexOf("iPad") != -1) ||
+             (navigator.platform.indexOf("iPod") != -1)) {
+                window.open(`maps:${locationURL}`);
+             }
+             else {
+                window.open(`https:${locationURL}`);
+             }
+            // event.preventDefault();
         }} >Map</Button>
     </div>
 )
