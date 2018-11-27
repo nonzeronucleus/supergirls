@@ -69,7 +69,7 @@ const Location = ({locationURL, locationDescription}) => (
              else {
                 window.open(`https:${locationURL}`);
              }
-            // event.preventDefault();
+            event.preventDefault();
         }} >Map</Button>
     </div>
 )

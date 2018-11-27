@@ -6,11 +6,8 @@ import EventItem from '../EventItem';
 
 const ItemLink = styled(Link)`
   text-decoration: underline;
-  >  * {
-
-    :hover {
-      text-decoration:underline;
-    }
+  :hover h2{
+    text-decoration:underline;
   }
 
 `;

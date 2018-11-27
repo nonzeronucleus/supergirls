@@ -13,7 +13,7 @@ const DateBlock = styled.div`
   min-width: 80px;
   text-align: center;
   padding:4px;
-  > h2 {
+  > h3 {
     margin-bottom: 0px;
   }
   div:nth-child(3) {
@@ -33,9 +33,9 @@ export default ({date}) => {
 
   return (
       <DateBlock>
-        <h2>
+        <h3>
           {day}
-        </h2>
+        </h3>
         <div>
           {monthShortNames[month]}
         </div>
