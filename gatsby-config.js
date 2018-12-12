@@ -2,7 +2,9 @@ require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
-    title: 'Supergirls Nottingham',
+    title: 'Supergirls Notts',
+    siteUrl: `https://www.supergirls-notts.co.uk`,
+    description: `Supergirls Notts. A social network for girls with Aspergers Syndrome in Nottinghamshire.`,
   },
   plugins: [
     'gatsby-plugin-react-helmet',

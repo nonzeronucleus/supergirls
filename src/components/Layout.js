@@ -1,6 +1,8 @@
+
 import React from 'react'
-// import Helmet from 'react-helmet'
+import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
+import _ from 'lodash';
 import styled from 'styled-components';
 import Header from './Header'
 import Footer from './Footer';
@@ -75,21 +77,35 @@ export default ({ children, hero }) => (
         }
       }
     `}
-    render={data => (
-      <Body>
-        <div className="header">
-          <Header />
-        </div>
-        <div className="body">
-          <div className="content">
-            {hero}
-            <div className="main">
-              {children}
-            </div>
+    render={data => {
+      const title=_.get(data, 'site.siteMetadata.title','Supergirls Notts');
+      const description=_.get(data, 'site.siteMetadata.description','');
+
+      return (
+        <Body>
+          <Helmet>
+            <title>
+              {title}
+            </title>
+            <link rel="canonical" href="http://supergirls-notts.co.uk" />
+            <meta property="og:description" content={description}></meta>
+            <meta name="description" content={description} />
+            <meta property="og:title" content={title}></meta>
+          </Helmet>
+          <div className="header">
+            <Header />
           </div>
-          <div className="footer"><Footer /></div>
-        </div>
-      </Body>
-    )}
+          <div className="body">
+            <div className="content">
+              {hero}
+              <div className="main">
+                {children}
+              </div>
+            </div>
+            <div className="footer"><Footer /></div>
+          </div>
+        </Body>
+      )
+    }}
   />
 );
