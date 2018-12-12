@@ -22,9 +22,9 @@ const EventList = styled.ul `
 
 `;
 
-export default ({data}) => (
+export default ({events}) => (
     <EventList>
-        {data.allContentfulEvent.edges.map(({node}) => (
+        {events.map(({node}) => (
             <EventSummary key={node.contentful_id} {...node}/>
         ))}
   </EventList>
