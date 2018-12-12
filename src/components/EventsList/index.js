@@ -20,12 +20,30 @@ const EventList = styled.ul `
 
   margin-left:0;
 
+  h1 {
+    color: white;
+    text-align: center;
+    background-color:black;
+    padding:8px;
+    margin:2px;
+  }
+
+
 `;
 
-export default ({events}) => (
+export default ({title, events}) => {
+
+  if(events.length===0) {
+    return null;
+  }
+
+  return (
     <EventList>
-        {events.map(({node}) => (
+      <h1>{title}</h1>
+      {events.map(({node}) => (
             <EventSummary key={node.contentful_id} {...node}/>
-        ))}
-  </EventList>
-)
+        )
+      )}
+    </EventList>
+  )
+}

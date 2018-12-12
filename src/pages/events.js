@@ -10,9 +10,6 @@ endOfToday.setHours(23,59,59,0);
 
 const eventIsCurrent = event => {
   const eventDateText = _.get(event, 'node.eventDate', endOfToday.toUTCString())
-  console.log({eventDateText});
-
-
   const eventDate = new Date(eventDateText);
 
   return eventDate >= endOfToday;
@@ -51,13 +48,11 @@ export default () => (
       const events = _.get(data, 'allContentfulEvent.edges')
       const currentEvents  = events.filter(event => eventIsCurrent(event));
       const oldEvents  = events.filter(event => !eventIsCurrent(event));
-      console.log(currentEvents);
 
       return (
           <Layout>
-            <EventsList events = {currentEvents} />
-            <h2>Previous events</h2>
-            <EventsList events = {oldEvents} />
+            <EventsList title="Upcoming events" events = {currentEvents} />
+            <EventsList title="Past events" events = {oldEvents} />
           </Layout>
         )}
       }
