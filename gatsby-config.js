@@ -2,7 +2,9 @@ require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
-    title: 'Supergirls Nottingham',
+    title: 'Supergirls Notts',
+    siteUrl: `https://www.supergirls-notts.co.uk`,
+    description: `Supergirls Notts. A social network for girls with Aspergers Syndrome in Nottinghamshire.`,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -56,6 +58,7 @@ module.exports = {
         spaceId: process.env.CONTENTFUL_SPACE_ID || '',
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || '',
         environment: process.env.CONTENTFUL_ENVIRONMENT || 'master',
+        host: process.env.CONTENTFUL_HOST || `cdn.contentful.com`
       },
     },
     {
