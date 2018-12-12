@@ -35,7 +35,8 @@ export default ({data}) => {
     : 'Date TBC';
 
   const locationURL = location
-    ? `https://maps.google.com/?q=${location.lat},${location.lon}`
+    // ? `https://maps.google.com/?q=${location.lat},${location.lon}`
+    ? `//maps.google.com/?q=${location.lat},${location.lon}`
     : null;
 
     const descriptionBody = <div dangerouslySetInnerHTML={{ __html: body }} />
