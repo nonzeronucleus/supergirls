@@ -60,6 +60,7 @@ const Button = styled.button`
 const Location = ({locationURL, locationDescription}) => (
     <div>{locationDescription}
         <Button onClick={(event) => {
+            console.log({locationURL})
             if /* if we're on iOS, open in Apple Maps */
             ((navigator.platform.indexOf("iPhone") != -1) ||
              (navigator.platform.indexOf("iPad") != -1) ||
