@@ -15,16 +15,30 @@ const eventIsCurrent = event => {
   return eventDate >= endOfToday;
 }
 
-export default () => (
+
+// Are we showing Supergirls events or other? Is this the same type of event
+const correctTventType = (event, supergirlsEvent) => {
+  const thisEventType = _.get(event, 'node.supergirlsEvent', true)
+
+  return thisEventType === supergirlsEvent;
+}
+
+            //
+
+export default ({supergirlsEvent}) => (
     <StaticQuery
     query={graphql`
       query EventOverviewQuery {
-        allContentfulEvent  ( sort : { fields: eventDate, order: ASC } ) {
+        allContentfulEvent
+          ( sort : { fields: eventDate, order: ASC }
+          )
+          {
           edges {
             node {
               contentful_id
               name
               eventDate
+              supergirlsEvent
               locationDescription
               location {
                 lon
@@ -45,7 +59,7 @@ export default () => (
     `}
     render={data => {
       const now = new Date();
-      const events = _.get(data, 'allContentfulEvent.edges')
+      const events = _.get(data, 'allContentfulEvent.edges').filter(event => correctTventType(event, supergirlsEvent))
       const currentEvents  = events.filter(event => eventIsCurrent(event));
       const oldEvents  = events.filter(event => !eventIsCurrent(event));
 
