@@ -34,6 +34,7 @@ const HeaderSection = styled.div`
   display: flex;
   -webkit-box-align: center;
   align-items: center;
+
   > * {
     margin-right:12px;
   }
@@ -41,7 +42,12 @@ const HeaderSection = styled.div`
   > a {
     text-decoration: none;
     color: inherit;
+    font-size:xx-large;
     background-color: transparent;
+    padding-right:25px;
+    padding-left:25px;
+    border-right-style: solid;
+    border-right-width:1px;
 
     :hover {
       color: red;
@@ -96,7 +102,8 @@ export default ({ children }) => (
       <Header>
         <LinkSection><Logo url={data.allContentfulAbout.edges[0].node.siteLogo.file.url}/>
           <Link to="/">Home</Link>
-          <Link to="/events">Events</Link>
+          <Link to="/supergirls-events">Supergirl Events</Link>
+          <Link to="/other-events">Other Events</Link>
         </LinkSection>
         <SocialSection>
         <a href="mailto:supergirlsnotts@gmail.com"><FaEnvelope/></a>
