@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby'
 import { Link } from 'gatsby'
-
+import breakpoints from '../consts/breakpoints';
 import {FaEnvelope} from "react-icons/fa";
 
 
@@ -42,12 +42,16 @@ const HeaderSection = styled.div`
   > a {
     text-decoration: none;
     color: inherit;
-    font-size:xx-large;
     background-color: transparent;
     padding-right:25px;
     padding-left:25px;
     border-right-style: solid;
     border-right-width:1px;
+
+    @media only screen and (min-width: ${breakpoints.desktop}) {
+      font-size:xx-large;
+    }
+
 
     :hover {
       color: red;
