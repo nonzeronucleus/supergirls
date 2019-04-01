@@ -60,15 +60,15 @@ const Button = styled.button`
 const Location = ({locationURL, locationDescription}) => (
     <div>{locationDescription}
         <Button onClick={(event) => {
-            if /* if we're on iOS, open in Apple Maps */
-            ((navigator.platform.indexOf("iPhone") != -1) ||
-             (navigator.platform.indexOf("iPad") != -1) ||
-             (navigator.platform.indexOf("iPod") != -1)) {
-                window.open(`maps:${locationURL}`);
-             }
-             else {
+            // if /* if we're on iOS, open in Apple Maps */
+            // ((navigator.platform.indexOf("iPhone") != -1) ||
+            //  (navigator.platform.indexOf("iPad") != -1) ||
+            //  (navigator.platform.indexOf("iPod") != -1)) {
+            //     window.open(`maps:${locationURL}`);
+            //  }
+            //  else {
                 window.open(`https:${locationURL}`);
-             }
+            //  }
             event.preventDefault();
         }} >Map</Button>
     </div>
