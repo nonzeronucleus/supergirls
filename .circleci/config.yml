@@ -58,6 +58,8 @@ jobs:
 
             - run: yarn install
 
+            - run: npm rebuild
+
             - save_cache:
                 paths:
                     - node_modules
